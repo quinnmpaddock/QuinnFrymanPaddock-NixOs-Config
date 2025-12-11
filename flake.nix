@@ -29,7 +29,7 @@
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
       modules = [
-        ./configuration.nix
+        ./hosts/nixos/configuration.nix
         nixos-hardware.nixosModules.framework-amd-ai-300-series
         home-manager.nixosModules.home-manager
         # inputs.stylix.nixosModules.stylix
@@ -39,7 +39,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.extraSpecialArgs = { inherit inputs; }; 
-          home-manager.users.quinn = import ./home.nix;
+          home-manager.users.quinn = import ./home-manager/default.nix;
           
         }
       ];
