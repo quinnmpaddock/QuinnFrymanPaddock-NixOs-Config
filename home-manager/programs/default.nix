@@ -4,13 +4,13 @@
   inputs,
   ...
 }:
-# let
-#   neovimconfig = import ../nixvim;
-#   nvim = inputs.nixvim.legacyPackages.x86_64-linux.makeNixvimWithModule {
-#     inherit pkgs;
-#     module = neovimconfig;
-#   };
-# in
+let
+  neovimconfig = import ../nixvim;
+  nvim = inputs.nixvim.legacyPackages.x86_64-linux.makeNixvimWithModule {
+    inherit pkgs;
+    module = neovimconfig;
+  };
+in
 {
   home.packages = with pkgs; [
 		bat
@@ -27,6 +27,7 @@
 		nmap
 		flameshot
 		simplescreenrecorder
+
     # ...
   ];
 
@@ -55,7 +56,7 @@
 		};
 
 		
-		programs.alacritty = {
+		alacritty = {
 			enable = true;
 			settings = {
 			window.opacity = 0.9;
@@ -72,38 +73,38 @@
 		};
 
 		
-		programs.nixvim = {
-			enable = true;
-
-			colorschemes.gruvbox.enable = true;
-			plugins.lualine.enable = true;
-			clipboard.providers.xclip.enable = true;
-			plugins.transparent = {
-					enable = true;
-					autoLoad = true;
-					package = pkgs.vimPlugins.transparent-nvim;
-			};
-
-			opts = {
-					clipboard = "unnamedplus";
-					number = true;
-					relativenumber = false;
-					signcolumn = "yes";
-					tabstop = 2;
-					shiftwidth = 2;
-					updatetime = 300;
-					termguicolors = true;
-					mouse = "a";
-			};
-
-			globals = {
-					mapleader = " ";
-					maplocalleader = " ";
-			};
-
-
-
-		};
+		# nixvim = {
+		# 	enable = true;
+		#
+		# 	colorschemes.gruvbox.enable = true;
+		# 	plugins.lualine.enable = true;
+		# 	clipboard.providers.xclip.enable = true;
+		# 	plugins.transparent = {
+		# 			enable = true;
+		# 			autoLoad = true;
+		# 			package = pkgs.vimPlugins.transparent-nvim;
+		# 	};
+		#
+		# 	opts = {
+		# 			clipboard = "unnamedplus";
+		# 			number = true;
+		# 			relativenumber = false;
+		# 			signcolumn = "yes";
+		# 			tabstop = 2;
+		# 			shiftwidth = 2;
+		# 			updatetime = 300;
+		# 			termguicolors = true;
+		# 			mouse = "a";
+		# 	};
+		#
+		# 	globals = {
+		# 			mapleader = " ";
+		# 			maplocalleader = " ";
+		# 	};
+		#
+		#
+		#
+		# };
 
 
   };
