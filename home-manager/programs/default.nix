@@ -27,6 +27,7 @@ in
 		nmap
 		flameshot
 		simplescreenrecorder
+		nvim
 
     # ...
   ];
