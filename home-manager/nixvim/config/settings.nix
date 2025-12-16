@@ -19,7 +19,7 @@
       number = true;
 
       # Show relative line numbers
-      relativenumber = true;
+      relativenumber = false;
 
       # Use the system clipboard
       clipboard = "unnamedplus";
@@ -62,7 +62,7 @@
       linebreak = true;
 
       # Disable spell checking
-      spell = false;
+      spell = true;
 
       # Disable swap file creation
       swapfile = false;
