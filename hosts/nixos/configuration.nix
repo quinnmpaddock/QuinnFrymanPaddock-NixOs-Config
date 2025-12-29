@@ -2,23 +2,26 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 # let
 #   home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
 # in
 {
-  imports =
-    [ # Include the results of the hardware scan.    
-      ./hardware-configuration.nix
-      
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
 
-      
-    ];
+  ];
 
+  nixpkgs.config.allowUnfree = true;
 
-    nixpkgs.config.allowUnfree = true;
-  
   # home-manager = {
   #   useUserPackages = true;
   #   useGlobalPkgs = true;
@@ -31,11 +34,11 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
- 
+
   hardware.graphics = {
-    enable = true;  
+    enable = true;
     enable32Bit = true;
-    extraPackages = with pkgs; [ 
+    extraPackages = with pkgs; [
       mesa
     ];
   };
@@ -43,20 +46,25 @@
   # Enable bluetooth hardware
   hardware.bluetooth.enable = true;
 
-    
   #services.lm_sensors.enable = true;
   hardware.enableRedistributableFirmware = true;
   hardware.enableAllFirmware = true;
   # services.xserver.videoDrivers = ["amdgpu"];
 
-
   networking.hostName = "nixos"; # Define your hostname.
   # Pick only one of the below networking options.
+  networking.wireless.iwd.enable = true;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager = {
+    enable = true; # Easiest to use and most distros use this by default.
+    wifi.backend = "iwd";
+  };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
 
@@ -74,61 +82,65 @@
 
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
-   # Enable the X11 windowing system.
+  # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
 
     windowManager.qtile = {
-        enable = true;
-        extraPackages = python3Packages: with python3Packages; [
-        qtile-extras
+      enable = true;
+      extraPackages =
+        python3Packages: with python3Packages; [
+          qtile-extras
         ];
     };
 
     displayManager.sessionCommands = ''
-        xwallpaper --zoom ~/static_walls/shore-house.jpg
-        xset r rate 200 35 &
-        xsetroot -cursor_name left_ptr
+      xwallpaper --zoom ~/static_walls/shore-house.jpg
+      xset r rate 200 35 &
+      xsetroot -cursor_name left_ptr
     '';
 
-    videoDrivers = ["amdgpu"];
-  };   
-  services.picom = {
-     enable = true;
-     backend = "glx";
-     fade = true;
+    videoDrivers = [ "amdgpu" ];
   };
-  
+  services.picom = {
+    enable = true;
+    backend = "glx";
+    fade = true;
+  };
+
   # Enable firmware updates
-  services.fwupd.enable = true; 
+  services.fwupd.enable = true;
 
   # Enable fingerprint reader support
   services.fprintd.enable = true;
 
-  # Enable bluetooth gui 
+  # Enable bluetooth gui
   services.blueman.enable = true;
 
   # Enable power management
   services.power-profiles-daemon.enable = false; # Disable conflicting service
   services.tlp = {
-        enable = true;
-        settings = {
-          CPU_SCALING_GOVERNOR_ON_AC = "performance";
-          CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+    enable = true;
+    settings = {
+      CPU_SCALING_GOVERNOR_ON_AC = "performance";
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
 
-          CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
-          CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+      CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
 
-          CPU_MIN_PERF_ON_AC = 0;
-          CPU_MAX_PERF_ON_AC = 100;
-          CPU_MIN_PERF_ON_BAT = 0;
-          CPU_MAX_PERF_ON_BAT = 100;
+      CPU_MIN_PERF_ON_AC = 0;
+      CPU_MAX_PERF_ON_AC = 100;
+      CPU_MIN_PERF_ON_BAT = 0;
+      CPU_MAX_PERF_ON_BAT = 100;
 
-         #Optional helps save long term battery health
-         #START_CHARGE_THRESH_BAT1 = 40; # 40 and below it starts to charge
-         STOP_CHARGE_THRESH_BAT1 = 80; # 80 and above it stops charging
+      # Wifi power saving (should stay off to avoid nm stalling)
+      WIFI_PWR_ON_BAT = "off";
 
-        };
+      #Optional helps save long term battery health
+      #START_CHARGE_THRESH_BAT1 = 40; # 40 and below it starts to charge
+      STOP_CHARGE_THRESH_BAT1 = 80; # 80 and above it stops charging
+
+    };
   };
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
@@ -154,22 +166,21 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
 
-
   services.upower.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.quinn = {
     isNormalUser = true;
-    extraGroups = [ 
-      "wheel"  
+    extraGroups = [
+      "wheel"
       "docker"
-    ]; 
+    ];
     packages = with pkgs; [
       tree
     ];
   };
-  
-  # Docker 
+
+  # Docker
   virtualisation.docker.enable = true;
 
   programs.firefox.enable = true;
@@ -208,7 +219,7 @@
     busybox
     libgccjit
     xorg.xrandr
-    pavucontrol 
+    pavucontrol
     vlc
     hackneyed # cursor theme
     impression
@@ -219,30 +230,29 @@
     neo4j
     # neo4j-desktop
 
-    # popup pkgs 
+    # popup pkgs
     libnotify
     dunst
     python3Packages.qtile-extras
 
   ];
-  
-  environment.variables = { # Add this block
+
+  environment.variables = {
+    # Add this block
     XCURSOR_THEME = "Hackneyed"; # Use the exact theme name
-    XCURSOR_SIZE  = "24";        # Adjust size as desired
+    XCURSOR_SIZE = "24"; # Adjust size as desired
     "RUSTICL_ENABLE" = "radeon";
   };
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
   ];
-  
+
   # Stylix config - TODO
 
   # ollama (Locall LLM) config
   services.ollama = {
     enable = true;
   };
-  
-
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -294,4 +304,3 @@
   system.stateVersion = "25.05"; # Did you read the comment?
 
 }
-
