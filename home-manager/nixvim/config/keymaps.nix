@@ -489,5 +489,62 @@
         desc = "Previous Tab";
       };
     }
+    # dap keymaps
+    {
+      mode = "n";
+      key = "<leader>dc";
+      action = "<cmd>lua require('dap').continue()<cr>";
+      options = {
+        desc = "Debug: Start/Continue";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>di";
+      action = "<cmd>lua require('dap').step_into()<cr>";
+      options = {
+        desc = "Debug: Step Into";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>dp";
+      action = "<cmd>lua require('dap').step_over()<cr>";
+      options = {
+        desc = "Debug: Step Over";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>do";
+      action = "<cmd>lua require('dap').step_out()<cr>";
+      options = {
+        desc = "Debug: Step Out";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>db";
+      action = "<cmd>lua require('dap').toggle_breakpoint()<cr>";
+      options = {
+        desc = "Debug: Toggle Breakpoint";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>dB";
+      action = "<cmd>lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>";
+      options = {
+        desc = "Debug: Set Conditional Breakpoint";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>du";
+      action = "<cmd>lua require('dapui').toggle()<cr>";
+      options = {
+        desc = "Debug: Toggle UI";
+      };
+    }
   ];
 }

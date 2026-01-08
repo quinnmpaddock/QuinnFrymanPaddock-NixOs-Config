@@ -38,6 +38,8 @@ _: {
     ./plugins/lsp/lsp.nix
     ./plugins/lsp/conform.nix
     ./plugins/lsp/fidget.nix
+    # DAP (in LSP dir)
+    ./plugins/lsp/dap.nix
 
     # Git
     ./plugins/git/lazygit.nix
