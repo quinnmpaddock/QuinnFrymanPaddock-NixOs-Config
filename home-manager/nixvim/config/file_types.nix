@@ -3,7 +3,7 @@
     filetypes = { };
   };
 
-  files."ftdetect/terraformft.lua".autoCmd = [
+  autoCmd = [
     {
       group = "filetypes";
       event = [
