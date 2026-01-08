@@ -1,4 +1,4 @@
-# { pkgs, ... }:
+{ pkgs, ... }:
 
 {
   plugins = {
@@ -44,4 +44,7 @@
 
     };
   };
+  extraPlugins = with pkgs.vimPlugins; [
+    nvim-nio
+  ];
 }
