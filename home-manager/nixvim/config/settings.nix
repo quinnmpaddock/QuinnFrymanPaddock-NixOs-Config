@@ -94,9 +94,9 @@
       };
     };
 
-    extraPlugins = with pkgs.vimPlugins; [
-      nvim-nio
-    ];
+    # extraPlugins = with pkgs.vimPlugins; [
+    #   nvim-nio
+    # ];
   };
 
 }
