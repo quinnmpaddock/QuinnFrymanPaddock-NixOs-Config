@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
   extraPlugins = with pkgs.vimPlugins; [
-    nvim-nio
+    # nvim-nio
   ];
 }
