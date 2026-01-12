@@ -29,6 +29,7 @@ in
     simplescreenrecorder
     nvim
     vintagestory
+    qFlipper
 
     # ...
   ];
