@@ -30,6 +30,7 @@ in
     nvim
     vintagestory
     qFlipper
+    ungoogled-chromium
 
     # ...
   ];
