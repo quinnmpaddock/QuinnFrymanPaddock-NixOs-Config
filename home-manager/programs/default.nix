@@ -31,6 +31,7 @@ in
     vintagestory
     qFlipper
     ungoogled-chromium
+    vimPlugins.nvim-nio
 
     # ...
   ];
