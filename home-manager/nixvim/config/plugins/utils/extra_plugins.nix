@@ -6,7 +6,7 @@ let
       owner = "nvim-neotest";
       repo = "nvim-nio";
       rev = "21f5324bfac14e22ba26553caf69ec76ae8a7662";
-      hash = "sha256-d7xVfM3+jOqTqV5Yf4vQJq4q8qVfM3+jOqTqV5Yf4vQ=";
+      hash = "sha256-eDbzJAGdUBhTwuD0Nt9FihZj1MmVdQfn/GKIybuu5a8=";
     };
   };
 in
