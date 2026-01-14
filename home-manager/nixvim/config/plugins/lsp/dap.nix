@@ -2,13 +2,13 @@
 
 {
   plugins = {
-    # neotest = {
-    #   enable = true;
-    #   adapters = {
-    #     # add language adapters for neotest here:
-    #     python.enable = true;
-    #   };
-    # };
+    neotest = {
+      enable = true;
+      adapters = {
+        # add language adapters for neotest here:
+        python.enable = true;
+      };
+    };
     dap = {
       enable = true;
       signs = {
