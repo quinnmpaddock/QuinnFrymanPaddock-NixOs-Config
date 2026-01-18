@@ -32,6 +32,7 @@ in
     qFlipper
     ungoogled-chromium
     vimPlugins.nvim-nio
+    nexusmods-app
 
     # ...
   ];
