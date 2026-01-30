@@ -33,6 +33,7 @@ in
     ungoogled-chromium
     vimPlugins.nvim-nio
     kiwix
+    mpv
 
     # ...
   ];
