@@ -32,7 +32,7 @@ in
     qFlipper
     ungoogled-chromium
     vimPlugins.nvim-nio
-    nexusmods-app-unfree
+    kiwix
 
     # ...
   ];
