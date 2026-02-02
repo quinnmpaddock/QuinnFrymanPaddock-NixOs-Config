@@ -34,7 +34,7 @@ in
     vimPlugins.nvim-nio
     kiwix
     mpv
-
+    discord
     # ...
   ];
 
