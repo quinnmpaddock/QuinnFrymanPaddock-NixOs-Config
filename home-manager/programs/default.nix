@@ -35,6 +35,7 @@ in
     kiwix
     mpv
     discord
+    ardour
     # ...
   ];
 
