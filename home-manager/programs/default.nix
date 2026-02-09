@@ -36,6 +36,7 @@ in
     mpv
     discord
     ardour
+    git-filter-repo
     # ...
   ];
 
