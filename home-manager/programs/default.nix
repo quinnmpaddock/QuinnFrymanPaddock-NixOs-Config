@@ -28,7 +28,7 @@ in
     flameshot
     simplescreenrecorder
     nvim
-    vintagestory
+    # vintagestory
     qFlipper
     ungoogled-chromium
     vimPlugins.nvim-nio
@@ -37,6 +37,7 @@ in
     discord
     ardour
     git-filter-repo
+    flatpak
     # ...
   ];
 
