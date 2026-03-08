@@ -30,14 +30,6 @@
     tray = "auto";
   };
 
-  services.flatpak.enable = true;
-
-  xdg.portal = {
-    enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-    config.common.default = "gtk";
-  };
-
   home.file.".config/bat/config".text = ''
     		--theme="Nord"
     		--style="numbers,changes,grid"

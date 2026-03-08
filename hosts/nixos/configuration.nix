@@ -117,6 +117,14 @@
   # Enable bluetooth gui
   services.blueman.enable = true;
 
+  services.flatpak.enable = true;
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    config.common.default = "gtk";
+  };
+
   # Enable power management
   services.power-profiles-daemon.enable = false; # Disable conflicting service
   services.tlp = {
