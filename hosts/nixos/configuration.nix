@@ -108,6 +108,7 @@
     fade = true;
   };
 
+  services.flatpak.enable = true;
   # Enable firmware updates
   services.fwupd.enable = true;
 
