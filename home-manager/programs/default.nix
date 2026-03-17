@@ -38,7 +38,6 @@ in
     ardour
     git-filter-repo
     flatpak
-    nexusmods-app
     # ...
   ];
 
