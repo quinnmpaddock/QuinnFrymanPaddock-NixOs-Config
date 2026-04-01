@@ -38,6 +38,7 @@ in
     ardour
     git-filter-repo
     flatpak
+    opencode
     # ...
   ];
 
