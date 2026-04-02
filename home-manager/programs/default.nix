@@ -45,6 +45,7 @@ in
     nodejs
     patchelf
     autoPatchelfHook
+    bun
 
     # ...
   ];
