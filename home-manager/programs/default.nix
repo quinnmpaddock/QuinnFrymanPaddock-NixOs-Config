@@ -38,7 +38,13 @@ in
     ardour
     git-filter-repo
     flatpak
+    # opencode and dependencies
     opencode
+    pkgs.rustc
+    pkgs.cargo
+    pkgs.nodejs
+    pkgs.autoPatchelfHook
+
     # ...
   ];
 
