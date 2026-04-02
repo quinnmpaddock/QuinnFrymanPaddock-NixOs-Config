@@ -40,10 +40,11 @@ in
     flatpak
     # opencode and dependencies
     opencode
-    pkgs.rustc
-    pkgs.cargo
-    pkgs.nodejs
-    pkgs.autoPatchelfHook
+    rustc
+    cargo
+    nodejs
+    patchelf
+    autoPatchelfHook
 
     # ...
   ];
