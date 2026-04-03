@@ -9,6 +9,7 @@
   imports = [
     inputs.nixvim.homeModules.nixvim
     ./programs
+    # ./hermes-agent
   ];
 
   home.username = "quinn";
