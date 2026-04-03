@@ -203,7 +203,14 @@
 
   services.hermes-agent = {
     enable = true;
-    settings.model.default = "opencode-go/MiniMax-M2.7";
+    settings = {
+      model.default = "opencode-go/MiniMax-M2.7";
+      terminal = {
+        backend = "local";
+        timeout = 180;
+        cwd = "./Hermes";
+      };
+    };
     environmentFiles = [ config.sops.secrets."hermes-env".path ];
     addToSystemPackages = true;
   };
