@@ -47,6 +47,8 @@ in
     autoPatchelfHook
     bun
 
+    sops
+
     # ...
   ];
 

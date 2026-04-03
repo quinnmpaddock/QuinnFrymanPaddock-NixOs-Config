@@ -30,6 +30,13 @@
     tray = "auto";
   };
 
+  # services.hermes-agent = {
+  #   enable = true;
+  #   settings.model.default = "anthropic/claude-sonnet-4";
+  #   environmentFiles = [ config.sops.secrets."hermes-env".path ];
+  #   addToSystemPackages = true;
+  # };
+
   home.file.".config/bat/config".text = ''
     		--theme="Nord"
     		--style="numbers,changes,grid"

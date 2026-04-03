@@ -12,7 +12,6 @@
     nixos-hardware.url = "github:Nixos/nixos-hardware";
 
     stylix.url = "github:danth/stylix";
-
     # Add LazyVim Home Manager module
     # lazyvim.url = "github:pfassina/lazyvim-nix";
     nixvim = {
@@ -23,7 +22,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     opencode.url = "github:dan-online/opencode-nix";
+    hermes-agent.url = "github:NousResearch/hermes-agent";
   };
 
   outputs =
@@ -33,7 +38,9 @@
       nixos-hardware,
       home-manager,
       nixvim,
+      sops-nix,
       opencode,
+      hermes-agent,
       ...
     }@inputs:
     {
@@ -45,7 +52,9 @@
           nixos-hardware.nixosModules.framework-amd-ai-300-series
           home-manager.nixosModules.home-manager
           # inputs.stylix.nixosModules.stylix
+          sops-nix.nixosModules.sops
           { nixpkgs.overlays = [ opencode.overlays.default ]; }
+          hermes-agent.nixosModules.default
           # Home Manager wiring for user quinn, import lazyvim HM module + your home.nix
           {
             home-manager.useGlobalPkgs = true;
