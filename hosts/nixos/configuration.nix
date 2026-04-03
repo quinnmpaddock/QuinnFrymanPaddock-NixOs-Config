@@ -193,6 +193,21 @@
 
   programs.firefox.enable = true;
 
+  sops = {
+    defaultSopsFile = /etc/nixos/secrets/hermes.yaml;
+    age.keyFile = "/home/quinn/.config/sops/age/keys.txt";
+    secrets."hermes-env" = {
+      format = "yaml";
+    };
+  };
+
+  services.hermes-agent = {
+    enable = true;
+    settings.model.default = "opencode-go/MiniMax-M2.7";
+    environmentFiles = [ config.sops.secrets."hermes-env".path ];
+    addToSystemPackages = true;
+  };
+
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [

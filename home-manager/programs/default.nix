@@ -48,6 +48,7 @@ in
     bun
 
     sops
+    age
 
     # ...
   ];
