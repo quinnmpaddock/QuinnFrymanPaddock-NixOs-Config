@@ -194,7 +194,7 @@
   programs.firefox.enable = true;
 
   sops = {
-    defaultSopsFile = /etc/nixos/secrets/hermes.yaml;
+    defaultSopsFile = ./../../secrets/hermes.yaml;
     age.keyFile = "/home/quinn/.config/sops/age/keys.txt";
     secrets."hermes-env" = {
       format = "yaml";
