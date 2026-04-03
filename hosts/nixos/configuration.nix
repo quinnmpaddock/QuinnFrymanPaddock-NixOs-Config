@@ -208,7 +208,7 @@
       terminal = {
         backend = "local";
         timeout = 180;
-        cwd = "./Hermes";
+        cwd = ".";
       };
     };
     environmentFiles = [ config.sops.secrets."hermes-env".path ];
