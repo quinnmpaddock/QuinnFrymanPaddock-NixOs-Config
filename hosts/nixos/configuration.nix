@@ -182,6 +182,7 @@
     extraGroups = [
       "wheel"
       "docker"
+      "hermes"
     ];
     packages = with pkgs; [
       tree
