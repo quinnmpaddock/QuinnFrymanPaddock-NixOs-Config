@@ -55,7 +55,6 @@
           sops-nix.nixosModules.sops
           { nixpkgs.overlays = [ opencode.overlays.default ]; }
           hermes-agent.nixosModules.default
-          # Home Manager wiring for user quinn, import lazyvim HM module + your home.nix
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;

@@ -17,6 +17,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./hermes.nix
 
   ];
 
@@ -194,32 +195,32 @@
 
   programs.firefox.enable = true;
 
-  sops = {
-    defaultSopsFile = ./../../secrets/hermes.yaml;
-    age.keyFile = "/home/quinn/.config/sops/age/keys.txt";
-    secrets."hermes-env" = {
-      format = "yaml";
-    };
-  };
-
-  services.hermes-agent = {
-    enable = true;
-    settings = {
-      model = {
-        default = "opencode-go/glm-5.1";
-        provider = "opencode-go";
-        base_url = "https://opencode.ai/zen/go/v1";
-        api_mode = "chat_completions";
-      };
-      terminal = {
-        backend = "local";
-        timeout = 180;
-        cwd = ".";
-      };
-    };
-    environmentFiles = [ config.sops.secrets."hermes-env".path ];
-    addToSystemPackages = true;
-  };
+  # sops = {
+  #   defaultSopsFile = ./../../secrets/hermes.yaml;
+  #   age.keyFile = "/home/quinn/.config/sops/age/keys.txt";
+  #   secrets."hermes-env" = {
+  #     format = "yaml";
+  #   };
+  # };
+  #
+  # services.hermes-agent = {
+  #   enable = true;
+  #   settings = {
+  #     model = {
+  #       default = "opencode-go/glm-5.1";
+  #       provider = "opencode-go";
+  #       base_url = "https://opencode.ai/zen/go/v1";
+  #       api_mode = "chat_completions";
+  #     };
+  #     terminal = {
+  #       backend = "local";
+  #       timeout = 180;
+  #       cwd = ".";
+  #     };
+  #   };
+  #   environmentFiles = [ config.sops.secrets."hermes-env".path ];
+  #   addToSystemPackages = true;
+  # };
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
