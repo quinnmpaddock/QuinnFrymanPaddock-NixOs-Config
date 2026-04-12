@@ -95,7 +95,8 @@
     };
 
     # extraPlugins = with pkgs.vimPlugins; [
-    #   nvim-nio
+    #   # nvim-nio
+    #   opencode-nvim
     # ];
   };
 
