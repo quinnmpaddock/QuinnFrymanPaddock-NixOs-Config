@@ -206,10 +206,10 @@
     enable = true;
     settings = {
       model = {
-        default = "opencode-go/MiniMax-M2.7";
+        default = "opencode-go/GLM-5.1";
         provider = "opencode-go";
         base_url = "https://opencode.ai/zen/go/v1";
-        api_mode = "chat_completions";
+        # api_mode = "chat_completions";
       };
       terminal = {
         backend = "local";
