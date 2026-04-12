@@ -17,7 +17,8 @@ _: {
     ./plugins/utils/markdown-preview.nix
     ./plugins/utils/obsidian.nix
     ./plugins/utils/toggleterm.nix
-    ./plugins/utils/web-devicons.nix
+    ./plugins/utils/snacks.nix
+    ./plugins/utils/obsidian.nix
 
     # Completion
     ./plugins/cmp/cmp.nix
@@ -38,6 +39,7 @@ _: {
     ./plugins/editor/todo-comments.nix
     ./plugins/editor/copilot-chat.nix
     ./plugins/editor/navic.nix
+    ./plugins/editor/opencode.nix
 
     # UI plugins
     ./plugins/ui/bufferline.nix
