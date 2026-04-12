@@ -26,8 +26,16 @@
         timeout = 180;
         cwd = ".";
       };
+      memory = {
+        provider = "holographic";
+        memory_enabled = true;
+        user_profile_enabled = true;
+      };
     };
     environmentFiles = [ config.sops.secrets."hermes-env".path ];
     addToSystemPackages = true;
+    # extraPackages = [
+    #
+    # ];
   };
 }
