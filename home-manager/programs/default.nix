@@ -50,6 +50,7 @@ in
     sops
     age
 
+    obsidian
     # ...
   ];
 
