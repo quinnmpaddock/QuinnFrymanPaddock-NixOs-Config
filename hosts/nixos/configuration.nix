@@ -48,6 +48,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelParams = [ "amdgpu.gttsize=22528" ];
 
   hardware.graphics = {
     enable = true;
@@ -308,6 +309,8 @@
     environmentVariables = {
       HSA_OVERRIDE_GFX_VERSION = "11.0.1";
       OLLAMA_GPU_OVERHEAD = "0";
+      OLLAMA_KEEP_ALIVE = "5m";
+      OLLAMA_MAX_LOADED_MODELS = "1";
     };
   };
 
