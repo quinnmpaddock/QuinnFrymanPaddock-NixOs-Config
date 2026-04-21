@@ -20,7 +20,20 @@
     ./hermes.nix
 
   ];
-
+  security.pam.loginLimits = [
+    {
+      domain = "*";
+      type = "soft";
+      item = "memlock";
+      value = "unlimited";
+    }
+    {
+      domain = "*";
+      type = "hard";
+      item = "memlock";
+      value = "unlimited";
+    }
+  ];
   nixpkgs.config.allowUnfree = true;
 
   # home-manager = {
@@ -41,6 +54,8 @@
     enable32Bit = true;
     extraPackages = with pkgs; [
       mesa
+      rocmPackages.clr
+      rocmPackages.rocminfo
     ];
   };
 
@@ -289,6 +304,10 @@
   # ollama (Locall LLM) config
   services.ollama = {
     enable = true;
+    package = pkgs.ollama-rocm;
+    environmentVariables = {
+      HSA_OVERRIDE_GFX_VERSION = "11.0.1";
+    };
   };
 
   # Some programs need SUID wrappers, can be configured further or are
