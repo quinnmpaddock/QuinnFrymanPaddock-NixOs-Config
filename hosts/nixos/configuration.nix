@@ -307,6 +307,7 @@
     package = pkgs.ollama-rocm;
     environmentVariables = {
       HSA_OVERRIDE_GFX_VERSION = "11.0.1";
+      OLLAMA_GPU_OVERHEAD = "0";
     };
   };
 
