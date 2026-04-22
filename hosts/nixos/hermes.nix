@@ -14,7 +14,7 @@
     enable = true;
     settings = {
       model = {
-        default = "gemma4:27b";
+        default = "gemma4:26b";
         provider = "custom";
         base_url = "http://localhost:11434/v1";
         api_key = "ollama";
@@ -24,7 +24,7 @@
       delegation = {
         base_url = "http://localhost:11434/v1";
         api_key = "ollama";
-        model = "gemma4:27b";
+        model = "gemma4:26b";
         max_iterations = 20;
         reasoning_effort = "none";
       };
