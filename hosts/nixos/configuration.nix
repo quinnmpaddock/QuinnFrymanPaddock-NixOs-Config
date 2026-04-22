@@ -48,7 +48,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelParams = [ "amdgpu.gttsize=22528" ];
+  boot.kernelParams = [ "amdgpu.gttsize=24576" ];
 
   hardware.graphics = {
     enable = true;
